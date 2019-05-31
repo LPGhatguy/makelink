@@ -14,7 +14,7 @@ fn main() -> Result<(), Box<std::error::Error>> {
             .index(1))
 
         .arg(Arg::with_name("TARGET")
-            .help("Where the symlink should point to")
+            .help("Where the symlink should point")
             .takes_value(true)
             .required(true)
             .index(2))
