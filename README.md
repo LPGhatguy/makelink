@@ -1,7 +1,9 @@
 # makelink
-You can't use `mklink` from Bash on Windows because it's a Batch built-in. The version of `ln` that comes with Git Bash is really broken.
+`mklink` isn't usable from non-cmd.exe shells on Windows because it's a Batch built-in.
 
-Enter makelink. It makes symlinks.
+The version of `ln` that comes with Git Bash on Windows copies files instead of creating actual symlinks.
+
+Enter makelink. It makes symlinks. It runs on Windows, MacOS, Linux, and maybe elsewhere.
 
 ## Installation
 You need a recent build of Rust.
