@@ -5,6 +5,9 @@ authors = ["Lucien Greathouse <me@lpghatguy.com>"]
 edition = "2018"
 license = "MIT"
 description = "Portable alternative to mklink/ln et al"
+homepage = "https://github.com/LPGhatguy/makelink"
+repository = "https://github.com/LPGhatguy/makelink"
+documentation = "https://github.com/LPGhatguy/makelink"
 
 [dependencies]
 symlink = "0.1.0"
