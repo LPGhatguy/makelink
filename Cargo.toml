@@ -1,14 +1,14 @@
 [package]
 name = "makelink"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Lucien Greathouse <me@lpghatguy.com>"]
 edition = "2018"
 license = "MIT"
-description = "Portable alternative to mklink/ln et al"
+description = "Portable alternative to ln/mklink with the interface of cp"
 homepage = "https://github.com/LPGhatguy/makelink"
 repository = "https://github.com/LPGhatguy/makelink"
 documentation = "https://github.com/LPGhatguy/makelink"
 
 [dependencies]
 symlink = "0.1.0"
-clap = "2.33.0"
+structopt = "0.3.21"

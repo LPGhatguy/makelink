@@ -1,29 +1,23 @@
+use std::path::PathBuf;
+
 use symlink::symlink_auto;
-use clap::{App, Arg};
+use structopt::StructOpt;
 
-fn main() -> Result<(), Box<std::error::Error>> {
-    let matches = App::new("makelink")
-        .version(env!("CARGO_PKG_VERSION"))
-        .author(env!("CARGO_PKG_AUTHORS"))
-        .about(env!("CARGO_PKG_DESCRIPTION"))
+#[derive(Debug, StructOpt)]
+#[structopt(author, about)]
+struct Options {
+    /// This is where the link will point to.
+    source: PathBuf,
 
-        .arg(Arg::with_name("LINK")
-            .help("Where the symlink should be created")
-            .takes_value(true)
-            .required(true)
-            .index(1))
+    /// This is where the link will be created.
+    dest: PathBuf,
+}
 
-        .arg(Arg::with_name("TARGET")
-            .help("Where the symlink should point")
-            .takes_value(true)
-            .required(true)
-            .index(2))
+fn main() {
+    let options = Options::from_args();
 
-        .get_matches();
-
-    let link_name = matches.value_of("LINK").unwrap();
-    let target = matches.value_of("TARGET").unwrap();
-
-    symlink_auto(target, link_name)?;
-    Ok(())
+    if let Err(err) = symlink_auto(&options.source, &options.dest) {
+        eprintln!("could not create symlink: {}", err);
+        std::process::exit(1);
+    }
 }

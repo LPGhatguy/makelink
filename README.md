@@ -13,29 +13,33 @@ cargo install makelink
 ```
 
 ## Usage
+It's the same as the `cp` command.
+
 ```
-makelink <link name> <link target>
+makelink <source> <dest>
 ```
 
 Example:
 
 ```sh
 echo "hi" > foo.txt
-makelink bar.txt foo.txt
+makelink foo.txt bar.txt
 cat bar.txt # hi
 ```
 
-If you forget the order of the arguments (you will), `mklink --help` is small and to-the-point:
+If you forget the order of the arguments (you will), `makelink --help` is small and to-the-point:
 
 ```
 USAGE:
-    makelink.exe <LINK> <TARGET>
+    makelink.exe <source> <dest>
 
-...
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
 
 ARGS:
-    <LINK>      Where the symlink should be created
-    <TARGET>    Where the symlink should point
+    <source>    This is where the link will point to
+    <dest>      This is where the link will be created
 ```
 
 ## License
